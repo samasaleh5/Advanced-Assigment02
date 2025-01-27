@@ -149,10 +149,35 @@ namespace Advanced_Assigment02
             return intersection;
         }
         #endregion
+        #region FindSubListWithTargetSum
+        public static ArrayList FindSublistWithTargetSum(ArrayList arr, int target)
+        {
+            int currentSum = 0;
+            int start = 0;
+            for (int end = 0; end < arr.Count; end++)
+            {
+                currentSum += (int)arr[end];
+                while (currentSum > target && start <= end)
+                {
+                    currentSum -= (int)arr[start];
+                    start++;
+                }
+                if (currentSum == target)
+                {
+                    ArrayList result = new ArrayList();
+                    for (int i = start; i <= end; i++)
+                    {
+                        result.Add(arr[i]);
+                    }
+                    return result;
+                }
+            }
+            return null;
+        }
+            #endregion
 
-
-        #region ReverseFirstElement
-        static Queue<int> ReverseFirstKElements(Queue<int> queue, int k)
+            #region ReverseFirstElement
+            static Queue<int> ReverseFirstKElements(Queue<int> queue, int k)
         {
             if (queue == null || k <= 0 || k > queue.Count)
                 return queue;
@@ -290,30 +315,39 @@ namespace Advanced_Assigment02
             //SearchTarget<int>(stack, Target);
             #endregion
             #region Question9
-            int[] arr1 = { 1, 2, 3, 4, 4};
-            int[] arr2 = { 10, 4, 4};
+            //int[] arr1 = { 1, 2, 3, 4, 4};
+            //int[] arr2 = { 10, 4, 4};
 
-            List<int> intersection = FindIntersection(arr1, arr2);
-            foreach (int i in intersection)
-            {
-                Console.WriteLine(i);
-            }
-            #endregion
-            #region Question10
-
-            #endregion
-            #region Question11
-            //Queue<int> queue = new Queue<int>(new[]{1, 2, 3, 4, 5, 6, 7, 8});
-            //int key = 3;
-
-            //Queue<int> result = ReverseFirstKElements(queue, key);
-            //foreach(int i in result)
+            //List<int> intersection = FindIntersection(arr1, arr2);
+            //foreach (int i in intersection)
             //{
             //    Console.WriteLine(i);
             //}
-
-
             #endregion
+            #region Question10
+            //ArrayList arr = new ArrayList() { 1, 2, 3, 7, 5 };
+            //int target = 12;
+            //ArrayList result=FindSublistWithTargetSum(arr, target);
+            //if (result != null)
+            //{
+            //    Console.WriteLine("Sublist with target sum:");
+            //    foreach (int i in result) Console.WriteLine(i);
+            //}
+            //else
+            //    Console.WriteLine("No sublist found with the target sum.");
+            #endregion
+            #region Question11
+                //Queue<int> queue = new Queue<int>(new[]{1, 2, 3, 4, 5, 6, 7, 8});
+                //int key = 3;
+
+                //Queue<int> result = ReverseFirstKElements(queue, key);
+                //foreach(int i in result)
+                //{
+                //    Console.WriteLine(i);
+                //}
+
+
+                #endregion
         }
     }
 }
