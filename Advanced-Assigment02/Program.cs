@@ -16,6 +16,20 @@
         }
 
         #endregion
+        #region ReverseElement
+        static void ReverseQueue<T>(Queue<T> queue)
+        {
+            Stack<T> stack = new Stack<T>();
+            while (queue.Count > 0)
+            {
+                stack.Push(queue.Dequeue());
+            }
+            while (stack.Count > 0)
+            {
+                queue.Enqueue((T)stack.Pop());
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Question1
@@ -50,25 +64,44 @@
             //}
             #endregion
             #region Question2
-            Console.WriteLine("Input: ");
-            int ArraySize = int.Parse(Console.ReadLine());
-            List<int> arrayList = new List<int>(ArraySize);
-            Console.WriteLine("Enter List Elements : ");
-            for (int i = 0; i < ArraySize; i++)
-            {
-                arrayList.Add(int.Parse(Console.ReadLine()));
-            }
-            Console.WriteLine("Output:");
-            if (isPalindrome(arrayList))
-            {
-                Console.WriteLine("YES");
-            }
-            else
-                Console.WriteLine("Not Palindrome");
+            //Console.WriteLine("Input: ");
+            //int ArraySize = int.Parse(Console.ReadLine());
+            //List<int> arrayList = new List<int>(ArraySize);
+            //Console.WriteLine("Enter List Elements : ");
+            //for (int i = 0; i < ArraySize; i++)
+            //{
+            //    arrayList.Add(int.Parse(Console.ReadLine()));
+            //}
+            //Console.WriteLine("Output:");
+            //if (isPalindrome(arrayList))
+            //{
+            //    Console.WriteLine("YES");
+            //}
+            //else
+            //    Console.WriteLine("Not Palindrome");
 
             #endregion
             #region Question3
-
+            Queue<int> queue = new Queue<int>();
+            Console.WriteLine("Enter Queue Size");
+            int QSize=int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Queue Elements");
+            for (int i = 0; i < QSize; i++)
+            {
+                int element=int.Parse(Console.ReadLine());
+                queue.Enqueue(element);
+            }
+            Console.WriteLine("Original Queue :");
+            foreach(var i in queue)
+            {
+                Console.WriteLine(i);
+            }
+            ReverseQueue(queue);
+            Console.WriteLine("Reversed Queue :");
+            foreach (var i in queue)
+            {
+                Console.WriteLine(i);
+            }
             #endregion
         }
         }
