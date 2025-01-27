@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Advanced_Assigment02
 {
@@ -71,6 +72,21 @@ namespace Advanced_Assigment02
                 }
             }
             return UniqueList;
+        }
+        #endregion
+        #region RemoveOdd
+        static ArrayList RemoveOddNUmber(ArrayList array)
+        {
+            ArrayList EvenList = new ArrayList();
+            foreach (var item in array)
+            {
+                if (item is int && (int)item % 2 == 0)
+                {
+                    EvenList.Add(item);
+                }
+            }
+            return EvenList;
+
         }
         #endregion
 
@@ -154,12 +170,21 @@ namespace Advanced_Assigment02
             //Console.WriteLine(IsBalanced<string>(input) ? "Balanced" : "Not Balanced");
             #endregion
             #region Question5
-            ArrayList arrayList = new ArrayList { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
-            ArrayList result=RemoveDuplicates(arrayList);
-            foreach(var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //ArrayList arrayList = new ArrayList { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
+            //ArrayList result=RemoveDuplicates(arrayList);
+            //foreach(var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Question6
+            //ArrayList input = new ArrayList { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //ArrayList result = RemoveOddNUmber(input);
+            //foreach (var item in result)
+            //{
+            //    Console.Write(item + " ");
+            //}
+            //Console.WriteLine();
             #endregion
         }
     }
