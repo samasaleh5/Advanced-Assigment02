@@ -186,6 +186,16 @@ namespace Advanced_Assigment02
             //}
             //Console.WriteLine();
             #endregion
+            #region Question7
+            Queue queue = new Queue();
+            queue.Enqueue(1);
+                queue.Enqueue("Sama");
+            queue.Enqueue(1.24);
+            foreach (var item in queue)
+            { 
+                Console.WriteLine(item);
+            }
+            #endregion
         }
     }
 }
