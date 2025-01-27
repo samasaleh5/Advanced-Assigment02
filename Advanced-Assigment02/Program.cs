@@ -1,4 +1,6 @@
-﻿namespace Advanced_Assigment02
+﻿using System.Collections;
+
+namespace Advanced_Assigment02
 {
     internal class Program {
         #region PalindromeFunction
@@ -57,6 +59,21 @@
             return stack.Count == 0;
         }
         #endregion
+        #region RemoveDup
+        static ArrayList RemoveDuplicates(ArrayList list) 
+        { 
+            ArrayList UniqueList = new ArrayList();
+            foreach (var item in list) 
+            {
+                if (!UniqueList.Contains(item))
+                {
+                    UniqueList.Add(item);
+                }
+            }
+            return UniqueList;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question1
@@ -131,10 +148,18 @@
             //}
             #endregion
             #region Question4
-            Console.WriteLine("Input:");
-            string input= Console.ReadLine();
-            Console.WriteLine("Output:");
-            Console.WriteLine(IsBalanced<string>(input) ? "Balanced" : "Not Balanced");
+            //Console.WriteLine("Input:");
+            //string input= Console.ReadLine();
+            //Console.WriteLine("Output:");
+            //Console.WriteLine(IsBalanced<string>(input) ? "Balanced" : "Not Balanced");
+            #endregion
+            #region Question5
+            ArrayList arrayList = new ArrayList { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
+            ArrayList result=RemoveDuplicates(arrayList);
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
         }
     }
