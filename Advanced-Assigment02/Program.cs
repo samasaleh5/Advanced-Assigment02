@@ -122,6 +122,55 @@ namespace Advanced_Assigment02
 
         }
         #endregion
+        #region FindIntersection
+        static List<int> FindIntersection(int[] arr1, int[] arr2)
+        {
+            Dictionary<int, int> freq = new Dictionary<int, int>();
+            List<int> intersection = new List<int>();
+
+            
+            foreach (int num in arr1)
+            {
+                if (freq.ContainsKey(num))
+                    freq[num]++;
+                else
+                    freq[num] = 1;
+            }
+
+            foreach (int num in arr2)
+            {
+                if (freq.ContainsKey(num) && freq[num] > 0)
+                {
+                    intersection.Add(num);
+                    freq[num]--; 
+                }
+            }
+
+            return intersection;
+        }
+        #endregion
+
+
+        #region ReverseFirstElement
+        static Queue<int> ReverseFirstKElements(Queue<int> queue, int k)
+        {
+            if (queue == null || k <= 0 || k > queue.Count)
+                return queue;
+
+            Stack<int> stack = new Stack<int>();
+
+            for (int i = 0; i < k; i++)
+                stack.Push(queue.Dequeue());
+
+            while (stack.Count > 0)
+                queue.Enqueue(stack.Pop());
+
+            for (int i = 0; i < queue.Count - k; i++)
+                queue.Enqueue(queue.Dequeue());
+
+            return queue;
+        }
+        #endregion
 
         static void Main(string[] args)
         {
@@ -239,6 +288,24 @@ namespace Advanced_Assigment02
             //Console.WriteLine("Enter Target Number You want");
             //int Target=int.Parse(Console.ReadLine());
             //SearchTarget<int>(stack, Target);
+            #endregion
+            #region Question9
+
+            #endregion
+            #region Question10
+
+            #endregion
+            #region Question11
+            Queue<int> queue = new Queue<int>(new[]{1, 2, 3, 4, 5, 6, 7, 8});
+            int key = 3;
+
+            Queue<int> result = ReverseFirstKElements(queue, key);
+            foreach(int i in result)
+            {
+                Console.WriteLine(i);
+            }
+
+
             #endregion
         }
     }
