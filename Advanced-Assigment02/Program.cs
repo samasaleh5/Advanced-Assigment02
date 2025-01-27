@@ -89,6 +89,39 @@ namespace Advanced_Assigment02
 
         }
         #endregion
+        #region CheckNumberIntoStack
+        static void SearchTarget<T>(Stack<int> stack,int Target)
+        {
+            Stack<int> TempStack = new Stack<int>();
+            int count = 0;
+            bool found = false;
+            while (stack.Count > 0) 
+            { 
+                int item=stack.Pop();
+                TempStack.Push(item);
+                count++;
+                if (item == Target) 
+                {
+                    found = true;
+                    Console.WriteLine($"Target was found successfully and the count = {count}");
+                    break;
+                }
+
+            }
+            while (TempStack.Count > 0)
+            {
+                stack.Push(TempStack.Pop());
+            }
+            if (!found)
+            {
+                Console.WriteLine("Target was not found");
+            }
+
+
+
+
+        }
+        #endregion
 
         static void Main(string[] args)
         {
@@ -187,14 +220,25 @@ namespace Advanced_Assigment02
             //Console.WriteLine();
             #endregion
             #region Question7
-            Queue queue = new Queue();
-            queue.Enqueue(1);
-                queue.Enqueue("Sama");
-            queue.Enqueue(1.24);
-            foreach (var item in queue)
-            { 
-                Console.WriteLine(item);
-            }
+            //Queue queue = new Queue();
+            //queue.Enqueue(1);
+            //    queue.Enqueue("Sama");
+            //queue.Enqueue(1.24);
+            //foreach (var item in queue)
+            //{ 
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Question8
+            //Stack<int> stack = new Stack<int>();
+            //Console.WriteLine("Enter Stack Elements");
+            //for (int i = 0; i < 5; i++) 
+            //{
+            //    stack.Push(int.Parse(Console.ReadLine()));
+            //}
+            //Console.WriteLine("Enter Target Number You want");
+            //int Target=int.Parse(Console.ReadLine());
+            //SearchTarget<int>(stack, Target);
             #endregion
         }
     }
