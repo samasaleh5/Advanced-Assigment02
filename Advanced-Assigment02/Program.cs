@@ -30,6 +30,33 @@
             }
         }
         #endregion
+        #region IsBalanced
+        static bool IsBalanced<T>(string str)
+        {
+            Stack<char>stack =new Stack<char> ();
+            foreach (char ch in str) 
+            { 
+                if(ch == '(' || ch == '{' || ch == '[')
+                {
+                    stack.Push (ch);
+                }
+                else if (ch == ')' || ch == '}' || ch == ']')
+                {
+                    if(stack.Count==0)
+                        return false;
+
+                    char top = stack.Pop();
+                    if ((ch == ')' && top != '(') ||
+                        (ch == '}' && top != '{') ||
+                        (ch == ']' && top != '['))
+                    {
+                        return false;
+                    }    
+                }
+            }
+            return stack.Count == 0;
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Question1
@@ -82,27 +109,33 @@
 
             #endregion
             #region Question3
-            Queue<int> queue = new Queue<int>();
-            Console.WriteLine("Enter Queue Size");
-            int QSize=int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Queue Elements");
-            for (int i = 0; i < QSize; i++)
-            {
-                int element=int.Parse(Console.ReadLine());
-                queue.Enqueue(element);
-            }
-            Console.WriteLine("Original Queue :");
-            foreach(var i in queue)
-            {
-                Console.WriteLine(i);
-            }
-            ReverseQueue(queue);
-            Console.WriteLine("Reversed Queue :");
-            foreach (var i in queue)
-            {
-                Console.WriteLine(i);
-            }
+            //Queue<int> queue = new Queue<int>();
+            //Console.WriteLine("Enter Queue Size");
+            //int QSize=int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter Queue Elements");
+            //for (int i = 0; i < QSize; i++)
+            //{
+            //    int element=int.Parse(Console.ReadLine());
+            //    queue.Enqueue(element);
+            //}
+            //Console.WriteLine("Original Queue :");
+            //foreach(var i in queue)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //ReverseQueue(queue);
+            //Console.WriteLine("Reversed Queue :");
+            //foreach (var i in queue)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            #endregion
+            #region Question4
+            Console.WriteLine("Input:");
+            string input= Console.ReadLine();
+            Console.WriteLine("Output:");
+            Console.WriteLine(IsBalanced<string>(input) ? "Balanced" : "Not Balanced");
             #endregion
         }
-        }
+    }
 }
