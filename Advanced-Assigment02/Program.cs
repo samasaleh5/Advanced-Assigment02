@@ -290,20 +290,27 @@ namespace Advanced_Assigment02
             //SearchTarget<int>(stack, Target);
             #endregion
             #region Question9
+            int[] arr1 = { 1, 2, 3, 4, 4};
+            int[] arr2 = { 10, 4, 4};
 
+            List<int> intersection = FindIntersection(arr1, arr2);
+            foreach (int i in intersection)
+            {
+                Console.WriteLine(i);
+            }
             #endregion
             #region Question10
 
             #endregion
             #region Question11
-            Queue<int> queue = new Queue<int>(new[]{1, 2, 3, 4, 5, 6, 7, 8});
-            int key = 3;
+            //Queue<int> queue = new Queue<int>(new[]{1, 2, 3, 4, 5, 6, 7, 8});
+            //int key = 3;
 
-            Queue<int> result = ReverseFirstKElements(queue, key);
-            foreach(int i in result)
-            {
-                Console.WriteLine(i);
-            }
+            //Queue<int> result = ReverseFirstKElements(queue, key);
+            //foreach(int i in result)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
 
             #endregion
